@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8DB244</color>
+    <color name="colorPrimarynight">#3949AB</color>
+
+    <color name="colorPrimaryDark">#8DB255</color>
+    <color name="colorPrimaryDarknight">#3949AA</color>
+
+
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colortabsbackground">#f5f5f5</color>
+
+
+    <color name="colortabindicatior">#8DB255</color>
+    <color name="selectedtablabelcolor">#000000</color>
+
+    <color name="cardbackgrounddark">#3949AA</color>
+
+
+</resources>

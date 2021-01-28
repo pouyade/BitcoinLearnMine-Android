@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <h2>What is a Bitcoin wallet?</h2>
+      <p>A Bitcoin wallet is a program to send and receive Bitcoins, store Bitcoins and monitor Bitcoin balances. Just like you need an email program like Outlook or Gmail to manage your emails, you need a Bitcoin wallet to manage your Bitcoins.</p>
+      <p>Wallets interface with the Bitcoin blockchain that global ledger of bitcoin transactions that we talked about in our last video</a>. Wallets monitor Bitcoin addresses on the blockchain and update their own balance with each transaction.</p>
+      <p>Now here’s one of the most important things to remember about a wallet: What defines a wallet is where its private key is stored. </p>
+
+      <h2><strong>A Private key? What does that mean?</strong></h2>
+      <p>Well, a private key is just a very long string of numbers and letters that acts as the password to your Bitcoin wallet. It’s from this number that your wallet gets its power to send your Bitcoins to other people. You can also think of it like the secret coordinates for locating your Bitcoins. In other words, whoever knows your private key has control over your Bitcoins.</p>
+      <p>The private key is also used to generate your Bitcoin address – this is just like your email address. It’s something you give out to people who want to send you Bitcoins. However, even though the Bitcoin address is generated through the private key, there’s no way figure out what the private key is just by examining a Bitcoin address.</p>
+      <p>To sum it up, &nbsp;the wallet’s core function is the creation, storage and use of the private key. In other words it automates Bitcoin’s complex cryptography for you.</p>
+      <p>As Bitcoin wallets evolved HD wallets, or hierarchical deterministic wallets, were created. HD wallets generate an initial phrase known as a seed or mnemonic phrase. This seed is a string of common words which you can memorize instead of the long confusing private key.</p>
+      <p>Later on, if your wallet gets destroyed or stolen, you can enter these words in order to reconstruct the private key. Additionally, an HD wallet can create many Bitcoin addresses from the same seed. All of the transactions sent to addresses created by the same seed will be part of the same wallet. &nbsp;</p>
+      <p>Because these private keys and seeds &nbsp;have complete power over your Bitcoins they must be kept secret and safe. If you fail to protect your wallet’s private key or seed, the bitcoins it controls could be irretrievably lost. </p>
+      <p>A standard Bitcoin wallet will create a wallet.dat file containing its private key. This file should be backup by copying it to a safe location like an encrypted drive on your computer, an external flash drive or even copying to a piece of paper and hiding it away.</p>
+      <p>An HD wallet on the other hand will supply you with a seed phrase with up to 24 word that you should write down in a safe place.</p>
+    </body>
+    <script>
+    function nightoff(){
+      document.getElementsByTagName("body")[0].style.background ='#ffffff';
+      document.getElementsByTagName("body")[0].style.color ='#000000';
+    }
+    function nighton(){
+      document.getElementsByTagName("body")[0].style.background ='#141d26';
+      document.getElementsByTagName("body")[0].style.color ='#ffffff';
+    }
+    </script>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <h2>What is a Hash?</h2>
+      <p>A hash algorithm takes data of any arbitrary size&nbsp;(numbers, alphabets, media files) and transforms it into a fixed alphanumeric string. The fixed bit size can vary <em>(like 64-bit or 128-bit or 256-bit)</em> depending on what hash function is being used.</p><p>And this fixed size output is what is called a <strong>hash</strong>. In other words, a hash is the cryptographic byproduct of a hash algorithm.</p>
+
+      <p>The hash algorithm has certain unique properties:</p>
+      <ul>
+        <li>It produces a unique output (or hash).</li>
+        <li>It is a one-way function.</li>
+      </ul>
+
+      <p>The mathematics behind the hash algorithm ensures that there is no way to generate the original data from its generated hash. This means the hash only functions in a linear progression. A simple analogy would be that you can&#8217;t produce a real human thumb from a thumbprint.</p><p>This is why a hash can be treated as a &#8220;digital fingerprint&#8221; of the data processed through the hash function.</p><p>To logically conclude, the same hash will only be generated&nbsp;from the same input data. But if you modify the data with something miniscule, like a single space or a comma, it will completely change the hash output.</p>
+
+      <p>And Bitcoin&#8217;s blockchain uses this cryptographic hash function&#8217;s properties in its consensus mechanism.</p>
+
+      <h2>What is a Bitcoin Hash?</h2>
+      <p>Bitcoin&#8217;s blockchain uses SHA-256 (Secure Hash Algorithm). In 2001, SHA-256 was developed by the National Security Agency (NSA) in the USA.</p><p><strong>Bitcoin&#8217;s proof of work algorithm</strong> is based on SHA-256. Using this, Bitcoin miners solve computationally difficult&nbsp;math problems to add blocks into the blockchain.</p>
+
+      <p>Bitcoin blocks are added by verifying the hashes on a lottery basis. Yes, a lottery!!</p>
+      <p>Let see how a miner wins the lottery&#8230;</p>
+      <p>To successfully mine a block, a miner needs to hash the block&#8217;s header in such a way that it is less than or equal to the &#8220;target.&#8221;</p>
+      <p>The target, at the time of writing this article, is that the SHA-256 hash of a block&#8217;s header must be a 256-bit alphanumeric string, and must start with 18 zeros. The target changes as the difficulty changes every 2016 blocks.</p>
+
+      <p>And the miners arrive at this particular hash (or target) by varying a small portion of the block&#8217;s headers, which is called a &#8220;nonce.&#8221; A nonce&nbsp;always starts with &#8220;0&#8221; and is incremented every time for obtaining the required hash (or target).</p>
+
+      <p>Since the varying of the nonce is hit and miss, the chances of getting this particular hash (or target), which starts with these many zeros, is very low. Therefore, many attempts must be made by a miner by varying the nonce.</p>
+
+      <p>And this requires an enormous amount of computational power and hardware resources which proves that a large amount of work is carried out before mining any individual block. That&#8217;s why this is called &#8220; proof-of-work&#8220;.</p>
+
+      <p>And in this way, whichever miner first obtains the correct <em>Bitcoin Hash</em> will win the lottery and get the block reward of 12.5 BTC.</p><p>I am sure that after reading this you want to participate in this lottery. But let me tell you, <strong>Bitcoin mining is a costly and energy-intensive affair.</strong> It requires you to make expensive hardware investments, pay for huge electricity bills, and demands that you have a good amount of computer knowledge.</p>
+    </body>
+    <script>
+    function nightoff(){
+      document.getElementsByTagName("body")[0].style.background ='#ffffff';
+      document.getElementsByTagName("body")[0].style.color ='#000000';
+    }
+    function nighton(){
+      document.getElementsByTagName("body")[0].style.background ='#141d26';
+      document.getElementsByTagName("body")[0].style.color ='#ffffff';
+    }
+    </script>
+</html>

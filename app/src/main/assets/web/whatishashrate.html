@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+
+<h2>What Is Hash Rate Or Hash Power?</h2>
+
+<p>Hash Rate, also Hash Power, is the measuring unit that measures how much power Bitcoin network is consuming to be continuously functional. By continuously functional I mean how much hash power is it consuming to generate/find blocks at the normal mean time of 10 minutes.</p>
+<p>If you remember, in my previous article What is a Bitcoin hash I explained thoroughly that Bitcoin network consumes a lot of energy because it has to solve mathematical intensive computations regularly to find the blocks.</p>
+
+<p>These computations for finding the blocks are basically mathematical puzzles that a miner cannot just guess without a lot of computation.</p>
+<p>To successfully mine a block, a miner needs to hash the block&rsquo;s header in such a way that it is less than or equal to the &ldquo;target.&rdquo;</p>
+
+<p>The target, at the time of writing this article, is that the SHA-256 hash of a block&rsquo;s header must be a 256-bit alphanumeric string, and must&nbsp;start with 18 zeros. The target changes as the difficulty change every 2016 blocks.</p>
+
+<p>And the miners arrive at this particular hash (or target) by varying a small portion of the block&rsquo;s headers, which is called a &ldquo;nonce.&rdquo; A nonce&nbsp;always starts with &ldquo;0&rdquo; and is incremented every time for obtaining the required hash (or target).</p>
+
+<p>Since the varying of the nonce is hit and miss, the chances of getting this particular hash (or target), which starts with these many zeros, is very low. Therefore, many attempts must be made by a miner by varying the nonce.</p>
+
+<p>And this number of attempts made per second is called hash rate or hash power. And this hash power or guessing attempts are made by miners who mine the Bitcoin blocks by a process called <em><strong>Bitcoin mining.</strong></em></p>
+
+<p>To understand more about hash power see this short video on hash power or hash rate which perfectly explains it.</p>
+<p><span class="embed-youtube" style="text-align:center; display: block;"></span></p>
+
+<h3>How Is The Hash Rate Measured &amp; its Unit?</h3>
+
+<p>Hash rate, as I said, is a unit measured in hashes per second or [h/s] and here are some usual denominations used to refer it.</p><p class="p1"><b>Hash rate denominations</b></p><ul class="ul1"><li class="li2">1 kH/s is 1,000 (one thousand) hashes per second</li><li class="li2">1 MH/s is 1,000,000 (one million) hashes per second.</li><li class="li2">1 GH/s is 1,000,000,000 (one billion) hashes per second.</li><li class="li2">1 TH/s is 1,000,000,000,000 (one trillion) hashes per second.</li>
+
+<li class="li2">1 PH/s is 1,000,000,000,000,000 (one quadrillion) hashes per second.</li>
+
+<li class="li2">1 EH/s is 1,000,000,000,000,000,000 (one quintillion) hashes per second.</li>
+</ul>
+
+<p class="p1"><b>Comman Hash rate Conversions</b></p>
+
+<ul class="ul1">
+  <li class="li2">1 MH/s = 1,000 kH/s</li>
+  <li class="li2">1 GH/s = 1,000 MH/s = 1,000,000 kH/s</li>
+  <li class="li2">1 TH/s = 1,000 GH/s = 1,000,000 MH/s = 1,000,000,000 kH/s</li>
+  <li class="li2">and so forth</li>
+</ul>
+  <p><strong>Bitcoin Network&#8217;s Hash Rate &amp; Distribution As Of Now?</strong></p>
+
+  <p>This is the Bitcoin&#8217;s hash rate distribution.</p>
+  <p><img src="https://coinsutra.com/wp-content/uploads/2017/12/Bitcoin-Hash-Rate-Distribution.png" alt="Bitcoin's hash rate distribution" /></p>
+
+  <p>Bitcoin network&#8217;s hash rate now is 9.9 TH/s and is only growing as the more miners are joining in so more difficulty is going up.</p>
+  <p><img src="https://coinsutra.com/wp-content/uploads/2017/12/Hash-Rate.png" alt="Hash-Rate" srcset="https://coinsutra.com/wp-content/uploads/2017/12/Hash-Rate.png 800w, https://coinsutra.com/wp-content/uploads/2017/12/Hash-Rate-768x342.png 768w" /></p>
+  <p><strong>Hash Rate, Miner&#8217;s Reward And Difficulty</strong></p>
+  <p>Hash rate, miner&#8217;s reward, and difficulty are interdependent on each other in various ways. Whenever Bitcoin network&#8217;s difficulty goes up more hash rate is required to mine/find the blocks and as result miners earn the block reward of 12.5 BTC plus the transaction fees.</p>
+
+  <p>Interestingly, the Bitcoin network&#8217;s difficulty goes up because of more miners joining the network and thus the hash power needs to be increased (i.e. more computational guesses needs to be made per second to find the solution).</p>
+  <p>This interesting correlation is enforced in the Bitcoin protocol itself so that the average block time remains 10 minutes.</p>
+
+  <p>After reading this, some of you would want to mine bitcoins by providing hash power to the Bitcoin network but that <strong>is a very costly and energy-intensive affair which everyone cannot do.</strong>&nbsp;It requires you to make expensive hardware investments, pay for huge electricity bills, and demands that you have a good amount of computer knowledge.</p>
+  <p>And until you are ready to become a miner, keep working hard in your current profession, HODL Bitcoin and stay tuned to&nbsp; CoinSutra &nbsp;to keep learning more about the Bitcoin revolution.</p>
+    </body>
+    <script>
+    function nightoff(){
+      document.getElementsByTagName("body")[0].style.background ='#ffffff';
+      document.getElementsByTagName("body")[0].style.color ='#000000';
+    }
+    function nighton(){
+      document.getElementsByTagName("body")[0].style.background ='#141d26';
+      document.getElementsByTagName("body")[0].style.color ='#ffffff';
+    }
+    </script>
+</html>
