@@ -5,24 +5,19 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.InviteEvent;
-import com.crashlytics.android.answers.RatingEvent;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
 
 import pro.pouyasoft.btclearnmine.BuildConfig;
 import pro.pouyasoft.btclearnmine.R;
@@ -120,7 +115,6 @@ public class DrawerActivity extends AppCompatActivity
         if (id == R.id.learnandmine) {
            changeFramgent(learnFragment);
         }else if (id == R.id.share) {
-            Answers.getInstance().logInvite(new InviteEvent());
             String ShareString = "<string name=\"shared_via\"><![CDATA[via <a href=\"https://play.google.com/store/apps/details?id="+BuildConfig.APPLICATION_ID+"\">great App for Bitcoin Learn you about Mining and ...</a>]]></string>";
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
@@ -129,7 +123,6 @@ public class DrawerActivity extends AppCompatActivity
             shareIntent.setType("text/plain");
             startActivity(Intent.createChooser(shareIntent, "Share this Application with..."));
         }else if(id==R.id.RateApp){
-            Answers.getInstance().logRating(new RatingEvent());
             try {
                 String packagename = BuildConfig.APPLICATION_ID;
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packagename)));

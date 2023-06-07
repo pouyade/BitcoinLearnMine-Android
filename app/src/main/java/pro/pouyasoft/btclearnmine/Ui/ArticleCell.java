@@ -2,14 +2,13 @@ package pro.pouyasoft.btclearnmine.Ui;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
-import android.util.AttributeSet;
+
 import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +25,7 @@ import pro.pouyasoft.btclearnmine.Setting.AppSetting;
 public class ArticleCell extends FrameLayout {
     Article article;
 
-    public ArticleCell(@NonNull Context context) {
+    public ArticleCell(Context context) {
         super(context);
         init();
     }

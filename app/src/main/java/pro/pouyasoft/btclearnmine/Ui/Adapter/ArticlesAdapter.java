@@ -2,14 +2,15 @@ package pro.pouyasoft.btclearnmine.Ui.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 import pro.pouyasoft.btclearnmine.Data.Models.Article;
-import pro.pouyasoft.btclearnmine.Data.Models.Category;
 import pro.pouyasoft.btclearnmine.Ui.Activity.ViewArticleActivity;
 import pro.pouyasoft.btclearnmine.Ui.ArticleCell;
 
@@ -32,7 +33,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((ArticleCell)holder.itemView).setArticle(articles.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

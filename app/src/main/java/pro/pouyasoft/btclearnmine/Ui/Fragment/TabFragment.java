@@ -2,20 +2,16 @@ package pro.pouyasoft.btclearnmine.Ui.Fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ListView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import pro.pouyasoft.btclearnmine.Data.Models.Category;
 import pro.pouyasoft.btclearnmine.Helper.LayoutHelper;
-import pro.pouyasoft.btclearnmine.R;
 import pro.pouyasoft.btclearnmine.Setting.AppSetting;
 import pro.pouyasoft.btclearnmine.Ui.Adapter.ArticlesAdapter;
 

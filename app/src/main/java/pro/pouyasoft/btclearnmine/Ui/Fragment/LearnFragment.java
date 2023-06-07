@@ -1,19 +1,19 @@
 package pro.pouyasoft.btclearnmine.Ui.Fragment;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +22,6 @@ import pro.pouyasoft.btclearnmine.Data.DBManager.Database;
 import pro.pouyasoft.btclearnmine.Data.Models.Category;
 import pro.pouyasoft.btclearnmine.R;
 import pro.pouyasoft.btclearnmine.Setting.AppSetting;
-import pro.pouyasoft.btclearnmine.Setting.Setting;
-import pro.pouyasoft.btclearnmine.Ui.Fragment.TabFragment;
 
 
 public class LearnFragment extends NightSupportFragment {
@@ -33,7 +31,7 @@ public class LearnFragment extends NightSupportFragment {
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
     private boolean attached = false;
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_main,container,false);

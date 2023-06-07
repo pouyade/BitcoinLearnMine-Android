@@ -12,7 +12,8 @@
         <activity
             android:name=".Ui.Activity.DrawerActivity"
             android:label="@string/app_name"
-            android:theme="@style/MyMaterialTheme">
+            android:theme="@style/MyMaterialTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +22,8 @@
         </activity>
         <activity
             android:name=".Ui.Activity.ViewArticleActivity"
-            android:parentActivityName=".Ui.Activity.DrawerActivity">
+            android:parentActivityName=".Ui.Activity.DrawerActivity"
+            android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Ui.Activity.DrawerActivity" />

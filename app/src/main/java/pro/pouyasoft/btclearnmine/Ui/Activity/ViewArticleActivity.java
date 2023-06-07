@@ -1,17 +1,15 @@
 package pro.pouyasoft.btclearnmine.Ui.Activity;
 
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.CustomEvent;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import pro.pouyasoft.btclearnmine.R;
 import pro.pouyasoft.btclearnmine.Setting.AppSetting;
@@ -25,7 +23,6 @@ public class ViewArticleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getExtras();
-        Answers.getInstance().logCustom(new CustomEvent("Loaded Web Page").putCustomAttribute("title",bundle.getString("title")));
         setContentView(R.layout.activity_view_article);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
