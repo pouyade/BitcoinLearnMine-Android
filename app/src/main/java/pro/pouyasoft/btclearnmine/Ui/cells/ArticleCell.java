@@ -1,4 +1,4 @@
-package pro.pouyasoft.btclearnmine.Ui;
+package pro.pouyasoft.btclearnmine.Ui.cells;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -16,7 +16,8 @@ import java.io.InputStream;
 import pro.pouyasoft.btclearnmine.Data.Models.Article;
 import pro.pouyasoft.btclearnmine.Helper.LayoutHelper;
 import pro.pouyasoft.btclearnmine.R;
-import pro.pouyasoft.btclearnmine.Setting.AppSetting;
+import pro.pouyasoft.btclearnmine.Setting.AppSettings;
+
 
 /**
  * Created by pouyadark on 8/3/18.
@@ -37,7 +38,7 @@ public class ArticleCell extends FrameLayout {
     public void init(){
         if(article == null) return;
         CardView cardView = new CardView(getContext());
-        cardView.setCardBackgroundColor(AppSetting.getNightMode()?getResources().getColor(R.color.cardbackgrounddark):0xffffffff);
+        cardView.setCardBackgroundColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?getResources().getColor(R.color.cardbackgrounddark):0xffffffff);
         cardView.setUseCompatPadding(true);
         cardView.setPadding(0,0,0,0);
 
@@ -59,7 +60,7 @@ public class ArticleCell extends FrameLayout {
         cardView.addView(imgico, LayoutHelper.createFrame(80,80, Gravity.LEFT|Gravity.TOP));
 
         TextView txtTitle = new TextView(getContext());
-        txtTitle.setTextColor(AppSetting.getNightMode()?0xffffffff:0xff000000);
+        txtTitle.setTextColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?0xffffffff:0xff000000);
         txtTitle.setText(article.title);
         cardView.addView(txtTitle,LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT,20,Gravity.LEFT|Gravity.TOP,85,2,5,5));
 
@@ -67,7 +68,7 @@ public class ArticleCell extends FrameLayout {
 //        txtdetails.setTextColor(0xff000000);
         txtdetails.setText(article.subtitle);
         txtdetails.setMaxLines(2);
-        txtdetails.setTextColor(AppSetting.getNightMode()?0x88ffffff:0xff000000);
+        txtdetails.setTextColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?0x88ffffff:0xff000000);
         cardView.addView(txtdetails,LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT,LayoutHelper.WRAP_CONTENT,Gravity.LEFT|Gravity.TOP,85,22,5,5));
 
 

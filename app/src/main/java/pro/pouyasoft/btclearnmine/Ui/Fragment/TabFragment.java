@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import pro.pouyasoft.btclearnmine.Data.Models.Category;
 import pro.pouyasoft.btclearnmine.Helper.LayoutHelper;
-import pro.pouyasoft.btclearnmine.Setting.AppSetting;
+import pro.pouyasoft.btclearnmine.Setting.AppSettings;
 import pro.pouyasoft.btclearnmine.Ui.Adapter.ArticlesAdapter;
 
 /**
@@ -63,6 +63,6 @@ public class TabFragment extends NightSupportFragment {
 
         if(listView == null)return;
         listView.getAdapter().notifyDataSetChanged();
-        listView.setBackgroundColor(AppSetting.getNightMode()?0xff000000:0xffffffff);
+        listView.setBackgroundColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?0xff000000:0xffffffff);
     }
 }

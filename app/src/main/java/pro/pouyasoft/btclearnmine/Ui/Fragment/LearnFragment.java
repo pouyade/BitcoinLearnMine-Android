@@ -21,7 +21,7 @@ import java.util.List;
 import pro.pouyasoft.btclearnmine.Data.DBManager.Database;
 import pro.pouyasoft.btclearnmine.Data.Models.Category;
 import pro.pouyasoft.btclearnmine.R;
-import pro.pouyasoft.btclearnmine.Setting.AppSetting;
+import pro.pouyasoft.btclearnmine.Setting.AppSettings;
 
 
 public class LearnFragment extends NightSupportFragment {
@@ -45,7 +45,7 @@ public class LearnFragment extends NightSupportFragment {
 
         tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setSelectedTabIndicatorColor(AppSetting.getNightMode()?getResources().getColor(R.color.colorPrimarynight):getResources().getColor(R.color.colorPrimary));
+        tabLayout.setSelectedTabIndicatorColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?getResources().getColor(R.color.colorPrimarynight):getResources().getColor(R.color.colorPrimary));
 
         return view;
     }
@@ -69,7 +69,7 @@ public class LearnFragment extends NightSupportFragment {
 //        if(adapter==null||adapter.mFragmentList==null)return;
       if(!attached)return;
         try {
-            tabLayout.setSelectedTabIndicatorColor(AppSetting.getNightMode()?getResources().getColor(R.color.colorPrimarynight):getResources().getColor(R.color.colorPrimary));
+            tabLayout.setSelectedTabIndicatorColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?getResources().getColor(R.color.colorPrimarynight):getResources().getColor(R.color.colorPrimary));
 
         }catch (Exception e){
 

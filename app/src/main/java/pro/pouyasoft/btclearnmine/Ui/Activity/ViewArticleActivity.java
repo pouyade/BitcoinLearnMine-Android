@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import pro.pouyasoft.btclearnmine.R;
-import pro.pouyasoft.btclearnmine.Setting.AppSetting;
+import pro.pouyasoft.btclearnmine.Setting.AppSettings;
 
 public class ViewArticleActivity extends AppCompatActivity {
 
@@ -32,7 +32,7 @@ public class ViewArticleActivity extends AppCompatActivity {
         webView = findViewById(R.id.webview);
         webView.loadUrl("file:///android_asset/web/" + bundle.getString("web"));
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.setBackgroundColor(AppSetting.getNightMode()?0xff141d26:0xffffffff);
+        webView.setBackgroundColor(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?0xff141d26:0xffffffff);
         UpdateColor();
         webView.setWebViewClient(new WebViewClient() {
 
@@ -45,7 +45,7 @@ public class ViewArticleActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         currentmenu = menu;
-        if(AppSetting.getNightMode()){
+        if(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)){
             getMenuInflater().inflate(R.menu.drawer_activity_dark_menu, menu);
         }else {
             getMenuInflater().inflate(R.menu.drawer_activity_normal_menu, menu);
@@ -61,12 +61,12 @@ public class ViewArticleActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_nightmode:
-                AppSetting.setNightMode(true);
+                AppSettings.Bool(AppSettings.Key.NIGHT_MODE,true);
                 UpdateColor();
                 return true;
 
             case R.id.action_nightmodeoff:
-                AppSetting.setNightMode(false);
+                AppSettings.Bool(AppSettings.Key.NIGHT_MODE,false);
                 UpdateColor();
                 return true;
         }
@@ -74,9 +74,10 @@ public class ViewArticleActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void UpdateColor(){
-        if(AppSetting.getNightMode()){
+        if(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)){
             //nightmood
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimarynight));
+            DrawerActivity.toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimarynight));
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarknight));
@@ -87,6 +88,7 @@ public class ViewArticleActivity extends AppCompatActivity {
             }
         }else{
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            DrawerActivity.toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -115,7 +117,7 @@ public class ViewArticleActivity extends AppCompatActivity {
 //    }
         public void updatewebviewtheme(){
 
-            if(!AppSetting.getNightMode()){
+            if(!AppSettings.Bool(AppSettings.Key.NIGHT_MODE)){
                 run("nightoff();");
                 webView.setBackgroundColor(0xffffffff);
             }else{

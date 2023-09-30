@@ -1,5 +1,6 @@
 package pro.pouyasoft.btclearnmine.Ui.Activity;
 
+import android.app.Application;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,20 +19,36 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.batch.android.Batch;
+import com.batch.android.BatchActivityLifecycleHelper;
+import com.batch.android.Config;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pro.pouyasoft.btclearnmine.AdHelper.AdmobHelper;
+import pro.pouyasoft.btclearnmine.ApplicationLoader;
 import pro.pouyasoft.btclearnmine.BuildConfig;
+import pro.pouyasoft.btclearnmine.Helper.AndroidUtilities;
 import pro.pouyasoft.btclearnmine.R;
-import pro.pouyasoft.btclearnmine.Setting.AppSetting;
 import pro.pouyasoft.btclearnmine.Ui.Fragment.LearnFragment;
 import pro.pouyasoft.btclearnmine.Ui.Fragment.NightSupportFragment;
+import pro.pouyasoft.btclearnmine.Setting.AppSettings;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Handler mHandler = new Handler();
     LearnFragment learnFragment;
-    Toolbar toolbar;
+    public static Toolbar toolbar;
     private int lastmenuid=-1;
     private Menu currentmenu;
     private NightSupportFragment currentFragment;
@@ -54,12 +72,24 @@ public class DrawerActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         navigationView.inflateHeaderView(
-                AppSetting.getNightMode()?
+                AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?
                         R.layout.nav_header_dark:
                         R.layout.nav_header_normal
         );
         changeFramgent(learnFragment);
         UpdateColor();
+
+        AppSettings.Update(() -> {
+            if(AppSettings.Bool(AppSettings.Key.BATCH_ENABLED)) {
+                Batch.setConfig(new Config(AppSettings.String(AppSettings.Key.BATCH_CODE)));
+                ApplicationLoader.getInstance().registerActivityLifecycleCallbacks(new BatchActivityLifecycleHelper());
+                Batch.onNewIntent(DrawerActivity.this, DrawerActivity.this.getIntent());
+                Batch.onStart(DrawerActivity.this);
+            }
+        });
+
+        LoadAndshow();
+        LoadNatives();
     }
 
     @Override
@@ -76,7 +106,7 @@ public class DrawerActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         currentmenu = menu;
-        if(AppSetting.getNightMode()){
+        if(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)){
             getMenuInflater().inflate(R.menu.drawer_activity_dark_menu, menu);
         }else {
             getMenuInflater().inflate(R.menu.drawer_activity_normal_menu, menu);
@@ -92,12 +122,13 @@ public class DrawerActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id){
             case R.id.action_nightmode:
-                AppSetting.setNightMode(true);
+                AppSettings.Bool(AppSettings.Key.NIGHT_MODE,true);
                 UpdateColor();
                 break;
 
             case R.id.action_nightmodeoff:
-                AppSetting.setNightMode(false);
+                AppSettings.Bool(AppSettings.Key.NIGHT_MODE,false);
+
                 UpdateColor();
                 break;
         }
@@ -136,7 +167,7 @@ public class DrawerActivity extends AppCompatActivity
         return true;
     }
     public void UpdateColor(){
-        if(AppSetting.getNightMode()){
+        if(AppSettings.Bool(AppSettings.Key.NIGHT_MODE)){
             //nightmood
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimarynight));
 
@@ -163,7 +194,7 @@ public class DrawerActivity extends AppCompatActivity
         if(navigationView!=null){
             navigationView.removeHeaderView(navigationView.getHeaderView(0));
             navigationView.inflateHeaderView(
-                    AppSetting.getNightMode()?
+                    AppSettings.Bool(AppSettings.Key.NIGHT_MODE)?
                             R.layout.nav_header_dark:
                             R.layout.nav_header_normal
             );
@@ -193,4 +224,50 @@ public class DrawerActivity extends AppCompatActivity
             mHandler.post(mPendingRunnable);
         }
     }
+    private void LoadAndshow() {
+        if (AppSettings.Bool(AppSettings.Key.ADMOB_ENABLED)) {
+            if(AppSettings.Bool(AppSettings.Key.ADMOB_ENABLED)){
+                String admobbannerid = AppSettings.String(AppSettings.Key.ADMOB_INTERSTAL_ID);
+                AdRequest adRequest = new AdRequest.Builder().build();
+                InterstitialAd.load(this, admobbannerid, adRequest, new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        super.onAdFailedToLoad(loadAdError);
+                    }
+
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        interstitialAd.show(DrawerActivity.this);
+                    }
+                });
+            }
+        }
+    }
+    public void LoadNatives() {
+        if ((AppSettings.Bool(AppSettings.Key.ADMOB_ENABLED))
+                && AppSettings.Bool(AppSettings.Key.SHOW_AD_NATIVES)
+                && !AppSettings.String(AppSettings.Key.ADMOB_NATIVE_ID).isEmpty());
+                final AdLoader adLoader = new AdLoader.Builder(DrawerActivity.this, AppSettings.String(AppSettings.Key.ADMOB_NATIVE_ID))
+                        .forNativeAd(NativeAd -> {
+                            ApplicationLoader.nativeAd=NativeAd;
+                        })
+                        .withAdListener(new AdListener() {
+                            @Override
+                            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                                super.onAdFailedToLoad(loadAdError);
+                            }
+
+                            @Override
+                            public void onAdClicked() {
+
+                            }
+                        })
+                        .withNativeAdOptions(new NativeAdOptions.Builder()
+                                // Methods in the NativeAdOptions.Builder class can be
+                                // used here to specify individual options settings.
+                                .build())
+                        .build();
+                adLoader.loadAd(AdmobHelper.getNewRequest());
+        }
+
 }

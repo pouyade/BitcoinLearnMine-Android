@@ -30,8 +30,11 @@
 
         </activity>
         <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="dc0e688b98371dd0104779a22d098588de38f9f3" />
+            android:name="com.samsung.android.icon_container.has_icon_container"
+            android:value="true"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

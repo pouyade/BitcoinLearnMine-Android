@@ -20,7 +20,10 @@
             app:popupTheme="@style/MyMaterialTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
+    <pro.pouyasoft.btclearnmine.AdHelper.BannerAd
+        android:id="@+id/bannerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
