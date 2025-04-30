@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BitcoinLearnMine.iml" filepath="$PROJECT_DIR$/.idea/modules/BitcoinLearnMine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BitcoinLearnMine-Android.iml" filepath="$PROJECT_DIR$/.idea/modules/BitcoinLearnMine-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BitcoinLearnMine-Android.app.unitTest.iml" />
     </modules>
   </component>
 </project>
